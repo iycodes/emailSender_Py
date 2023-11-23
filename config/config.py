@@ -4,16 +4,16 @@ class Config:
 
 
 email_header_from = "someone"
-email_header_to = "you!"
+email_header_to = "clients@gmail.com"
 email_subject = "SUBJECT.PDF"
 email_body = """\
 
 Hi, AND HI AGAIN
+testing testing testing..
+tst tst tst, 
+okay uhmm... still testing..
 Check out the new post on the Mailtrap blog:
 SMTP Server for Testing: Cloud-based or Local?
-https://blog.mailtrap.io/2018/09/27/cloud-or-local-smtp-server/
-Feel free to let us know what content would be useful for you!
-
 """
 _a = "2E3179616E75306C757741"
 
@@ -28,6 +28,11 @@ auth_details = {
 
 emails_to_spam = [
     # "shedibalabala123@gmail.com",
-    "francbubs@gmail.com",
+    # "francbubs@gmail.com",
     # "maguiretoaspiretoperspire@gmail.com",
+    "lazytube23@gmail.com"
 ]
+
+
+# delay in seconds before sending another email
+delay = 10

@@ -67,36 +67,7 @@ res = yes_or_no_input("Use Default Email?")
 if res == False:
     login_details["email"] = input("Type in Outlook Email : ")
     login_details["password"] = input("Type in password : ")
-
-print(login_details)
-
-
-# res = input(
-#     """/
-# Use default email?
-# 1) yes
-# 2) no
-# """
-# )
-# while True:
-#     match res:
-#         case "yes" | "1" | "y":
-#             # recall = False
-#             res = True
-#             break
-#         case "no" | "2" | "n":
-#             # recall = False
-#             res = False
-#             break
-
-#         case _:
-#             res = input(
-#                 """/
-# Use default email?
-# 1) yes
-# 2) no
-# """
-#             )
+    print(login_details)
 
 
 message = MIMEMultipart()
@@ -134,9 +105,16 @@ server.login(login_details["email"], login_details["password"])
 async def sendMail():
     print("Starting.....")
     for email in config.emails_to_spam:
+        # try:
         server.sendmail(login_details["email"], email, message.as_string())
-        print(email)
-        await asyncio.sleep(10)
+        # except Exception as e:
+        #     # print(e)
+        #     print("error Sending..")
+        #     return
+
+        print(f"SENT SUCCESFULLY TO {email} ")
+        print(f"waiting {config.delay} seconds")
+        await asyncio.sleep(config.delay)
 
 
 if __name__ == "__main__":
